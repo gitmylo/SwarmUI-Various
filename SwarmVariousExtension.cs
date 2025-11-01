@@ -11,7 +11,7 @@ public class SwarmVariousExtension : Extension
     
     public override void OnInit()
     {
-        SwarmVariousGroup = new T2IParamGroup("[Extension] Swarm various", Description: "Options from the swarm various extension");
+        SwarmVariousGroup = new T2IParamGroup("[Extension] Swarm various", Description: "Options from the swarm various extension", OrderPriority:0);
         
         // Init features
         Register(typeof(ScaleROPE));
