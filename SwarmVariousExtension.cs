@@ -15,6 +15,7 @@ public class SwarmVariousExtension : Extension
         
         // Init features
         Register(typeof(ScaleROPE));
+        Register(typeof(ContextWindow));
     }
 
     /// <summary>

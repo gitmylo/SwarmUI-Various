@@ -59,7 +59,7 @@ public class ScaleROPE : ComfyNodeFeature
                 g.UserInput.TryGet(ROPEScaleY, out var scaleY) && g.UserInput.TryGet(ROPEShiftY, out var shiftY) &&
                 g.UserInput.TryGet(ROPEScaleT, out var scaleT) && g.UserInput.TryGet(ROPEShiftT, out var shiftT))
             {
-                string scaleNode = g.CreateNode("ScaleROPE", new JObject()
+                string scaleNode = g.CreateNode("ScaleROPE", new JObject
                 {
                     ["model"] = g.LoadingModel,
                     ["scale_x"] = scaleX,
