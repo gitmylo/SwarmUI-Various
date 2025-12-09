@@ -82,7 +82,7 @@ public class ContextWindow : ComfyNodeFeature
 
             if (g.UserInput.TryGet(CompatibilityMode, out string mode))
             {
-                (contextLength, contextOverlap) = Compatibility(contextLength, contextOverlap, mode);
+                (contextLength, contextOverlap, dimension) = Compatibility(contextLength, contextOverlap, dimension, mode);
             }
 
             g.LoadingModel = [g.CreateNode("ContextWindowsManual", new JObject
@@ -104,14 +104,15 @@ public class ContextWindow : ComfyNodeFeature
     /// Applies compatibility tweaks to inputs
     /// </summary>
     /// <returns>tuple with (length, overlap)</returns>
-    private (int, int) Compatibility(int length, int overlap, string compmode)
+    private (int, int, int) Compatibility(int length, int overlap, int dim, string compmode)
     {
         switch (compmode)
         {
             case "Wan":
                 return (Math.Max(((int)Math.Floor(((double)length - 1) / 4)*4) + 1, 1),
-                    Math.Max(((int)Math.Floor(((double)overlap - 1) / 4)*4) + 1, 0));
+                    Math.Max(((int)Math.Floor(((double)overlap - 1) / 4)*4) + 1, 0),
+                    2);
         }
-        return (length, overlap);
+        return (length, overlap, dim);
     }
 }
